@@ -10,7 +10,6 @@ import { ChakraProvider } from '@chakra-ui/react'
 import Sidebar from './components/Sidebar'
 import ProfilePage from './components/pages/ProfilePage'
 import NewsPage from './components/pages/NewsPage'
-import PageNotFound from './components/pages/PageNotFound'
 import RegisterPage from './components/pages/RegisterPage'
 
 function App() {
