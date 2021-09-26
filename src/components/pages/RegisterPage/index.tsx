@@ -51,7 +51,7 @@ const RegisterPage = (props: any) => {
           duration: 9000,
           isClosable: true
         })
-        history.push('/sign-in')
+        history.push('/')
       }
     })
   }

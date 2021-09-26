@@ -35,21 +35,27 @@ const EditProfile = (props: any) => {
       if (res.data.error) {
         toast({
           title: 'Error',
-          position: 'bottom-right',
+          position: 'bottom-left',
           description: res.data.error,
           status: 'error',
           duration: 9000,
           isClosable: true
         })
+        setTimeout(() => {
+          window.location.reload()
+        }, 1000)
       } else {
         toast({
           title: 'Successful',
-          position: 'bottom-right',
+          position: 'bottom-left',
           description: res.data.message,
           status: 'success',
           duration: 9000,
           isClosable: true
         })
+        setTimeout(() => {
+          window.location.reload()
+        }, 1000)
       }
     })
   }
@@ -72,7 +78,7 @@ const EditProfile = (props: any) => {
         })
         setTimeout(() => {
           window.location.reload()
-        }, 3000)
+        }, 1000)
       } else {
         toast({
           title: 'Successful',
@@ -84,7 +90,7 @@ const EditProfile = (props: any) => {
         })
         setTimeout(() => {
           window.location.reload()
-        }, 3000)
+        }, 1000)
       }
     })
   }

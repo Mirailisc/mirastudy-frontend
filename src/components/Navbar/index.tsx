@@ -30,7 +30,7 @@ const Navbar = (props: any) => {
     <>
       <div className={styles.Navbar}>
         <div className={styles.NavBrand}>
-          <Link to={props.isAuth ? '/' : '/sign-in'}>
+          <Link to='/'>
             <img src={logo} alt="logo" />
             MiraStudy
           </Link>

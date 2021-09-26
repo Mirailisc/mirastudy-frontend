@@ -66,19 +66,20 @@ function App() {
         {sidebarRender()}
         <Switch>
           <Route exact path="/">
-            <FeedPage isAuth={isAuth} currentUser={currentUser} />
+            {isAuth ? (
+              <FeedPage isAuth={isAuth} currentUser={currentUser} />
+            ) : (
+              <LoginPage />
+            )}
           </Route>
           <Route exact path="/user/:username">
-            <ProfilePage currentUser={currentUser} />
+            {isAuth ? <ProfilePage currentUser={currentUser} /> : <LoginPage />}
           </Route>
           <Route exact path="/news">
-            <NewsPage currentUser={currentUser} />
+            {isAuth ? <NewsPage currentUser={currentUser} /> : <LoginPage />}
           </Route>
 
-          <Route exact path="/sign-in">
-            <LoginPage />
-          </Route>
-          <Route exact path="/sign-in">
+          <Route exact path="/sign-up">
             <RegisterPage />
           </Route>
         </Switch>

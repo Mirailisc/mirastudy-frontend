@@ -35,8 +35,11 @@ const CreatePostForm = (props: any) => {
     Axios.post(url, {
       text: form,
       username: props.currentUser.username
+    }).then((res) => {
+      if (res.data) {
+        window.location.reload()
+      }
     })
-    window.location.reload()
   }
 
   return (
