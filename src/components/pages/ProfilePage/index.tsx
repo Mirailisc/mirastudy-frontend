@@ -31,7 +31,7 @@ const ProfilePage = (props: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   useEffect(() => {
-    Axios.get('/user/info', {
+    Axios.get('https://mirastudy-backend.herokuapp.com/user/info', {
       params: {
         user: username
       }
@@ -43,7 +43,7 @@ const ProfilePage = (props: any) => {
         setLoadUser(true)
       }
     })
-    Axios.get('/post/user', {
+    Axios.get('https://mirastudy-backend.herokuapp.com/post/user', {
       params: {
         user: username
       }

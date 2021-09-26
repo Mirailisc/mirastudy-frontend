@@ -13,7 +13,7 @@ const NewsPage = (props: any) => {
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    Axios.get('/dev/post').then((res: any) => {
+    Axios.get('https://mirastudy-backend.herokuapp.com/dev/post').then((res: any) => {
       if (res.data) {
         setPost(res.data)
         setLoading(false)

@@ -21,7 +21,7 @@ const FeedPage = (props: any) => {
   }, [])
 
   useEffect(() => {
-    Axios.get('/post').then((res: any) => {
+    Axios.get('https://mirastudy-backend.herokuapp.com/post').then((res: any) => {
       if (mountedRef.current) {
         if (res.data) {
           setPost(res.data)

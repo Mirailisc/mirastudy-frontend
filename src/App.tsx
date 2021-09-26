@@ -26,7 +26,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem('authToken')
     if (token) {
-      Axios.get('/auth/curUser', {
+      Axios.get('https://mirastudy-backend.herokuapp.com/auth/curUser', {
         headers: {
           'x-access-token': token
         }

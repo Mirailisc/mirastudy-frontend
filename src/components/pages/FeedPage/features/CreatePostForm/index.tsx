@@ -29,7 +29,9 @@ const CreatePostForm = (props: any) => {
   const [form, setForm] = useState<any | null>(null)
 
   const handlePost = () => {
-    const url = props.isNews ? '/dev/post/create' : '/post/create'
+    const url = props.isNews
+      ? 'https://mirastudy-backend.herokuapp.com/dev/post/create'
+      : 'https://mirastudy-backend.herokuapp.com/post/create'
     Axios.post(url, {
       text: form,
       username: props.currentUser.username

@@ -31,7 +31,7 @@ const EditProfile = (props: any) => {
     const data = new FormData()
     data.append('user', props.data.username)
     data.append('file', file)
-    Axios.put('/user/update/avatar', data).then((res) => {
+    Axios.put('https://mirastudy-backend.herokuapp.com/user/update/avatar', data).then((res) => {
       if (res.data.error) {
         toast({
           title: 'Error',
@@ -55,7 +55,7 @@ const EditProfile = (props: any) => {
   }
 
   const updateInfo = () => {
-    Axios.put('/user/update/info', {
+    Axios.put('https://mirastudy-backend.herokuapp.com/user/update/info', {
       firstname: info.firstname ? info.firstname : props.data.firstname,
       lastname: info.lastname ? info.lastname : props.data.lastname,
       email: info.email ? info.email : props.data.email,

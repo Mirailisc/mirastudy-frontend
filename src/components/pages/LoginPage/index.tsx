@@ -29,7 +29,7 @@ const LoginPage = (props: any) => {
   const [message, setMessage] = useState<any | null>(null)
 
   const handleLogin = () => {
-    Axios.post('/auth/sign-in', {
+    Axios.post('https://mirastudy-backend.herokuapp.com/auth/sign-in', {
       email: form.email,
       password: form.password
     }).then((res) => {

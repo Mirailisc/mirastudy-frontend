@@ -34,7 +34,7 @@ const RegisterPage = (props: any) => {
     form.rePassword === ''
 
   const handleRegister = () => {
-    Axios.post('/user/create', {
+    Axios.post('https://mirastudy-backend.herokuapp.com/user/create', {
       username: form.username,
       firstname: form.firstname,
       lastname: form.lastname,
