@@ -29,8 +29,11 @@ const Post = (props: any) => {
         id: id,
         user: user
       }
+    }).then((res) => {
+      if (res.data.message) {
+        window.location.reload()
+      }
     })
-    window.location.reload()
   }
 
   const formatLink = (href: any, text: any, key: any) => {
