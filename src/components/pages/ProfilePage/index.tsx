@@ -31,6 +31,7 @@ const ProfilePage = (props: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   useEffect(() => {
+    document.title = `${username} | MiraStudy`
     Axios.get('https://mirastudy-backend.herokuapp.com/user/info', {
       params: {
         user: username
@@ -56,10 +57,6 @@ const ProfilePage = (props: any) => {
       }
     })
   }, [username])
-
-  useEffect(() => {
-    document.title = `${username} | MiraStudy`
-  }, [])
 
   return (
     <>
