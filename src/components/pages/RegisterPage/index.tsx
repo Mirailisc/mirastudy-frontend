@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './index.module.scss'
 import { Link, useHistory } from 'react-router-dom'
 import {
@@ -55,6 +55,10 @@ const RegisterPage = (props: any) => {
       }
     })
   }
+
+  useEffect(() => {
+    document.title = 'Sign up | MiraStudy'
+  }, [])
 
   return (
     <>

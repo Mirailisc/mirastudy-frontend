@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './index.module.scss'
 import { Link, useHistory } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -42,6 +42,10 @@ const LoginPage = (props: any) => {
       }
     })
   }
+
+  useEffect(() => {
+    document.title = 'Sign in | MiraStudy'
+  }, [])
 
   return (
     <>

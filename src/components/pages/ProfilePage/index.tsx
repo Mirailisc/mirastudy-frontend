@@ -57,6 +57,10 @@ const ProfilePage = (props: any) => {
     })
   }, [username])
 
+  useEffect(() => {
+    document.title = `${username} | MiraStudy`
+  }, [])
+
   return (
     <>
       <div className={styles.ProfilePage}>

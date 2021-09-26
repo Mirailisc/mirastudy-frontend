@@ -13,6 +13,7 @@ const NewsPage = (props: any) => {
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
+    document.title = 'News | MiraStudy'
     Axios.get('https://mirastudy-backend.herokuapp.com/dev/post').then((res: any) => {
       if (res.data) {
         setPost(res.data)
