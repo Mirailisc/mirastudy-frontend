@@ -1,0 +1,55 @@
+@import '../../../../utility/theme';
+
+.Post {
+    background-color: $white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+
+    .PostAccount {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .profile {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+
+            .user {
+                .profile {
+                    align-items: center;
+                    
+                    a {
+                        h4 {
+                            font-weight: 700;
+                        }
+    
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .date {
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: $textColor;
+                    text-decoration: none !important;
+                }
+            }
+        }
+    }
+
+    .PostContent {
+        margin: 10px 0;
+
+        .Linkify {
+            color: $primaryColor;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

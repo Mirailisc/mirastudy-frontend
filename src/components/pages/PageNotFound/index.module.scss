@@ -1,0 +1,16 @@
+@import '../../utility/theme';
+
+.PageNotFound {
+    height: 100vh;
+    background-color: $primaryColor;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+
+    h1 {
+        font-size: 40px;
+        font-weight: 700;
+    }
+}

@@ -1,0 +1,28 @@
+@import '../utility/theme';
+
+.NavbarBottom {
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    background-color: $white;
+    z-index: 2;
+
+    .NavLink {
+        padding: 10px;
+        color: $textColor;
+    }
+
+    .NavLinkActive {
+        @extend .NavLink;
+        color: $primaryColor;
+    }
+
+    @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}

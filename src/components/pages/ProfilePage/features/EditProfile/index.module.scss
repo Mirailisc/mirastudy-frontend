@@ -1,0 +1,21 @@
+.editProfile {
+
+    .image {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .information {
+        .input {
+            margin: 10px 0;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .image {
+            flex-direction: column;
+        }
+    }
+}

@@ -1,0 +1,61 @@
+@import '../../../../utility/theme';
+
+.PostForm {
+    padding: 1rem;
+    background-color: $white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    border-radius: 5px;
+
+    .Post {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+
+        .ModalPostBtn {
+            width: 100%;
+            background-color: $backgroundColor;
+            border-radius: 0px;
+            transition: background-color 300ms;
+            color: $textColor;
+    
+            &:hover {
+                background-color: $backgroundColorDarker;
+            }
+        }
+    }
+
+    .PostOps {
+        width: 10%;
+    }
+
+    .MediaBtn {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        
+        button {
+            color: $textColor;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        align-items: unset;
+        flex-direction: column;
+
+        .MediaBtn {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+
+            button {
+                width: 100%;
+            }
+        }
+    }
+}
