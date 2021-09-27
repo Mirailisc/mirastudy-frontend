@@ -24,7 +24,7 @@ library.add(fas)
 
 const Post = (props: any) => {
   const handleDelete = (id: number, user: string) => {
-    Axios.delete('/post/delete', {
+    Axios.delete('https://mirastudy-backend.herokuapp.com/post/delete', {
       params: {
         id: id,
         user: user
