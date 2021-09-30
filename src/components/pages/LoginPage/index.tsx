@@ -26,17 +26,21 @@ const LoginPage = (props: any) => {
     email: null,
     password: null
   })
+  const [loading, setLoading] = useState<boolean>(false)
   const [message, setMessage] = useState<any | null>(null)
 
   const handleLogin = () => {
+    setLoading(true)
     Axios.post('https://mirastudy-backend.herokuapp.com/auth/sign-in', {
       email: form.email,
       password: form.password
     }).then((res) => {
       if (res.data.error) {
         setMessage(res.data.error)
+        setLoading(false)
       } else {
         localStorage.setItem('authToken', res.data.token)
+        setLoading(false)
         history.push('/')
         window.location.reload()
       }
@@ -99,6 +103,7 @@ const LoginPage = (props: any) => {
               </FormControl>
               <Button
                 my={10}
+                isLoading={loading}
                 width="100%"
                 onClick={handleLogin}
                 colorScheme="blue"

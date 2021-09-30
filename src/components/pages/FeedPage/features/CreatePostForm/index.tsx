@@ -26,9 +26,11 @@ library.add(fas)
 
 const CreatePostForm = (props: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const [loading ,setLoading] = useState<boolean>(false)
   const [form, setForm] = useState<any | null>(null)
 
   const handlePost = () => {
+    setLoading(true)
     const url = props.isNews
       ? 'https://mirastudy-backend.herokuapp.com/dev/post/create'
       : 'https://mirastudy-backend.herokuapp.com/post/create'
@@ -37,6 +39,7 @@ const CreatePostForm = (props: any) => {
       username: props.currentUser.username
     }).then((res) => {
       if (res.data) {
+        setLoading(false)
         window.location.reload()
       }
     })
@@ -89,6 +92,7 @@ const CreatePostForm = (props: any) => {
           <ModalFooter>
             <Button
               width="100%"
+              isLoading={loading}
               colorScheme="blue"
               isDisabled={form ? false : true}
               onClick={handlePost}

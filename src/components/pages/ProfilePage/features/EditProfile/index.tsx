@@ -25,9 +25,12 @@ const EditProfile = (props: any) => {
     email: null
   })
   const [file, setFile] = useState<any | null>([])
+  const [loadingImage, setLoadingImage] = useState<boolean>(false)
+  const [loadingInfo, setLoadingInfo] = useState<boolean>(false)
   const toast = useToast()
 
   const updateImage = () => {
+    setLoadingImage(true)
     const data = new FormData()
     data.append('user', props.data.username)
     data.append('file', file)
@@ -42,6 +45,7 @@ const EditProfile = (props: any) => {
           isClosable: true
         })
         setTimeout(() => {
+          setLoadingImage(false)
           window.location.reload()
         }, 1000)
       } else {
@@ -61,6 +65,7 @@ const EditProfile = (props: any) => {
   }
 
   const updateInfo = () => {
+    setLoadingInfo(true)
     Axios.put('https://mirastudy-backend.herokuapp.com/user/update/info', {
       firstname: info.firstname ? info.firstname : props.data.firstname,
       lastname: info.lastname ? info.lastname : props.data.lastname,
@@ -89,6 +94,7 @@ const EditProfile = (props: any) => {
           isClosable: true
         })
         setTimeout(() => {
+          setLoadingInfo(false)
           window.location.reload()
         }, 1000)
       }
@@ -127,6 +133,7 @@ const EditProfile = (props: any) => {
             <Button
               colorScheme="blue"
               isDisabled={file.length === 0 ? true : false}
+              isLoading={loadingImage}
               my="20px"
               onClick={updateImage}
             >
@@ -175,7 +182,7 @@ const EditProfile = (props: any) => {
           <Button colorScheme="blue" mr={3} onClick={props.onClose}>
             Close
           </Button>
-          <Button variant="ghost" onClick={updateInfo}>
+          <Button variant="ghost" isLoading={loadingInfo} onClick={updateInfo}>
             Save
           </Button>
         </ModalFooter>

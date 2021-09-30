@@ -19,3 +19,11 @@ code {
   min-height: 100vh;
   background-color: #E8F0F2;
 }
+
+.Loader {
+  padding-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

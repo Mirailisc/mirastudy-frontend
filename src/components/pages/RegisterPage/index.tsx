@@ -24,6 +24,7 @@ const RegisterPage = (props: any) => {
   })
   const [message, setMessage] = useState<any | null>('')
   const history = useHistory()
+  const [loading, setLoading] = useState<boolean>(false)
   const toast = useToast()
   const isInvalid =
     form.username === '' ||
@@ -34,6 +35,7 @@ const RegisterPage = (props: any) => {
     form.rePassword === ''
 
   const handleRegister = () => {
+    setLoading(true)
     Axios.post('https://mirastudy-backend.herokuapp.com/user/create', {
       username: form.username,
       firstname: form.firstname,
@@ -42,8 +44,10 @@ const RegisterPage = (props: any) => {
       password: form.password,
       rePassword: form.rePassword
     }).then((res) => {
-      if (res.data.error) setMessage(res.data.error)
-      else {
+      if (res.data.error) {
+        setMessage(res.data.error)
+        setLoading(false)
+      } else {
         toast({
           title: 'Successful',
           description: 'Your account have been created',
@@ -51,7 +55,8 @@ const RegisterPage = (props: any) => {
           duration: 9000,
           isClosable: true
         })
-        history.push('/')
+        setLoading(false)
+        history.push('/sign-in')
       }
     })
   }
@@ -162,6 +167,7 @@ const RegisterPage = (props: any) => {
                   type="submit"
                   my={10}
                   width="100%"
+                  isLoading={loading}
                   isDisabled={isInvalid}
                   colorScheme="blue"
                   onClick={handleRegister}
